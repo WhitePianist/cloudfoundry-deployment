@@ -6,17 +6,17 @@
 ```
 sudo apt-get update
 ```
-- [Go](#Go)  
-- [RVM](#RVM)  
-- [Git](#Git)  
-- [Curl](#Curl)  
-- [VirtualBox](#VirtualBox)  
-- [Vagrant](#Vagrant)  
-- [bosh-lite Download & VM run](#bosh-lite_Download_&_VM_run)  
-- [add Route](#add_Route)  
-- [BOSH CLI](#BOSH_CLI)  
-- [CF CLI](#CF_CLI)  
-- [Spiff](#Spiff)  
+- [Go](#go)  
+- [RVM](#rvm)  
+- [Git](#git)  
+- [Curl](#curl)  
+- [VirtualBox](#virtualbox)  
+- [Vagrant](#vagrant)  
+- [bosh-lite Download & VM run](#bosh-lite-download--vm-run)  
+- [add Route](#add-route)  
+- [BOSH CLI](#bosh-cli)  
+- [CF CLI](#cf-cli)  
+- [Spiff](#spiff)  
 
 #### Go
 ```
