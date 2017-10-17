@@ -3,8 +3,8 @@
 ## bosh-lite
 
 ### Pre-Reqs
-[go](go)  
-[godep](godep)
+[go](#go)  
+[godep](#godep)
 
 #### go
 ```
