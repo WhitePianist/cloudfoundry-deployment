@@ -12,9 +12,10 @@ sudo apt-get update
 - [Curl](#Curl)  
 - [VirtualBox](#VirtualBox)  
 - [Vagrant](#Vagrant)  
-- [bosh-lite Download & VM run](#bosh-lite Download & VM run)  
-- [BOSH CLI](#BOSH CLI)  
-- [CF CLI](#CF CLI)  
+- [bosh-lite Download & VM run](#bosh-lite_Download_&_VM_run)  
+- [add Route](#add_Route)  
+- [BOSH CLI](#BOSH_CLI)  
+- [CF CLI](#CF_CLI)  
 - [Spiff](#Spiff)  
 
 #### Go
@@ -92,6 +93,12 @@ vagrant up --provider=virtualbox
 조치방법: Vagrantfile 수정
 override.vm.network :private_network  << 주석 제거 후 저장. 다시 vagrant up
 
+#### add Route
+```
+cd ~/workspace/bosh-lite/bin
+add-route
+```
+
 #### BOSH CLI
 ```
 gem install bosh_cli --no-ri --no-rdoc
@@ -114,3 +121,8 @@ sudo cp spiff /usr/local/bin   -> sudo mv spiff /usr/local/bin
 
 
 ### Cloud Foundry Deploy
+```
+cd ~/workspace
+git clone https://github.com/cloudfoundry/cf-release
+cd cf-release
+```
