@@ -164,6 +164,7 @@ git clone https://github.com/cloudfoundry/diego-release
 cd diego-release
 git checkout v1.25.1
 ./scripts/generate-bosh-lite-manifests
+bosh deployment bosh-lite/deployments/diego.yml
 bosh -n upload release releases/diego-1.25.1.yml
 bosh -n deploy
 
