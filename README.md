@@ -58,19 +58,34 @@ sudo dpkg -i virtualbox-***.deb
 sudo dpkg -i vagrant_***.deb
 ```
 
-설치 후 vagrant up
+
+### Cloud Foundry Deploy
+
+#### bosh-lite Download & VM run
 ```
+cd ~/workspace
+git clone https://github.com/cloudfoundry/bosh-lite
+cd bosh-lite
+
 vagrant up --provider=virtualbox
 ```
 
-실행 시 아래와 같은 에러가 발생하면 os의 secure boot를 disable 해야 한다.
+>실행 시 아래와 같은 에러가 발생하면 os의 secure boot를 disable 해야 한다.
 
-The provider 'virtualbox' that was requested to back the machine
-'default' is reporting that it isn't usable on this system. The
-reason is shown below:
+>The provider 'virtualbox' that was requested to back the machine
+>'default' is reporting that it isn't usable on this system. The
+>reason is shown below:
+>
+>VirtualBox is complaining that the kernel module is not loaded. Please
+>run `VBoxManage --version` or open the VirtualBox GUI to see the error
+>message which should contain instructions on how to fix this error.
 
-VirtualBox is complaining that the kernel module is not loaded. Please
-run `VBoxManage --version` or open the VirtualBox GUI to see the error
-message which should contain instructions on how to fix this error.
+>아래와 같은 에러가 발생하면 Vagrantfile 수정
+>override.vm.network :private_network  << 주석 제거 후 저장. 다시 vagrant up
 
-### Cloud Foundry Deploy
+>The specified host network collides with a non-hostonly network!
+>This will cause your specified IP to be inaccessible. Please change
+>the IP or name of your host only network so that it no longer matches that of
+>a bridged or non-hostonly network.
+
+#### 
