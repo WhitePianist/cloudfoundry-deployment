@@ -35,6 +35,7 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 source ~/.rvm/scripts/rvm
 
 rvm install ruby-2.3.0
+gem install bundle --no-document
 ```
 
 #### Git
@@ -103,6 +104,7 @@ add-route
 ```
 gem install bosh_cli --no-ri --no-rdoc
 bosh target https://192.168.50.4:25555
+(admin / admin)
 ```
 
 #### CF CLI
@@ -114,15 +116,63 @@ sudo mv cf /usr/local/bin
 
 #### Spiff
 ```
-wget https://github.com/cloudfoundry-incubator/spiff/releases/download/v1.0.8/spiff_linux_amd64.zip
-unzip spiff_linux_amd64.zip; rm –f spiff_linux_amd64.zip
-sudo cp spiff /usr/local/bin   -> sudo mv spiff /usr/local/bin 
+wget https://github.com/cloudfoundry-incubator/spiff/releases/download/v1.0.7/spiff_linux_amd64.zip
+unzip spiff_linux_amd64.zip; rm -f spiff_linux_amd64.zip
+sudo mv spiff /usr/local/bin
 ```
 
 
 ### Cloud Foundry Deploy
+#### Specific Version Deploy(v272)
 ```
 cd ~/workspace
 git clone https://github.com/cloudfoundry/cf-release
 cd cf-release
+git checkout v272
+./scripts/generate-bosh-lite-dev-manifest 2>/dev/null
+./scripts/generate-bosh-lite-dev-manifest
+bosh -n upload release releases/cf-272.yml
+bosh -n deploy
+
+bosh vms
+```
+#### Custom Deploy
+```
+cd ~/workspace
+git clone https://github.com/cloudfoundry/cf-release
+cd cf-release
+git checkout v272
+./scripts/update
+bosh -n create release --force
+bosh -n upload release
+bosh -n deploy
+
+bosh vms
+```
+
+### Diego Deploy
+#### Specific Version Deploy(1.25.1)
+```
+cd ~/workspace
+git clone https://github.com/cloudfoundry/diego-release
+cd diego-release
+git checkout v1.25.1
+./scripts/generate-bosh-lite-manifests
+bosh -n upload release releases/diego-1.25.1.yml
+bosh -n deploy
+
+bosh vms
+```
+#### Custom Deploy
+```
+cd ~/workspace
+git clone https://github.com/cloudfoundry/diego-release
+cd diego-release
+git checkout v1.25.1
+./scripts/update
+bosh -n create release --force
+bosh -n upload release
+bosh -n deploy
+
+bosh vms
 ```
