@@ -6,12 +6,12 @@
 ```
 sudo apt-get update
 ```
-- [RVM](#RVM)  
 - [Go](#Go)  
-- [VirtualBox](#VirtualBox)  
-- [Vagrant](#Vagrant)  
+- [RVM](#RVM)  
 - [Git](#Git)  
 - [Curl](#Curl)  
+- [VirtualBox](#VirtualBox)  
+- [Vagrant](#Vagrant)  
 
 #### Go
 ```
@@ -32,6 +32,16 @@ source ~/.rvm/scripts/rvm
 rvm install ruby-2.3.0
 ```
 
+#### Git
+```
+sudo apt-get install git
+```
+
+#### Curl
+```
+sudo apt-get install curl
+```
+
 #### VirtualBox
 ```
 sudo apt-get install libqt5x11extras5 libsdl1.2debian
@@ -48,12 +58,19 @@ sudo dpkg -i virtualbox-***.deb
 sudo dpkg -i vagrant_***.deb
 ```
 
-#### Git
+설치 후 vagrant up
 ```
-sudo apt-get install git
+vagrant up --provider=virtualbox
 ```
 
-#### Curl
-```
-sudo apt-get install curl
-```
+실행 시 아래와 같은 에러가 발생하면 os의 secure boot를 disable 해야 한다.
+
+The provider 'virtualbox' that was requested to back the machine
+'default' is reporting that it isn't usable on this system. The
+reason is shown below:
+
+VirtualBox is complaining that the kernel module is not loaded. Please
+run `VBoxManage --version` or open the VirtualBox GUI to see the error
+message which should contain instructions on how to fix this error.
+
+### Cloud Foundry Deploy
