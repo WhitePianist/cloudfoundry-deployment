@@ -121,6 +121,12 @@ unzip spiff_linux_amd64.zip; rm -f spiff_linux_amd64.zip
 sudo mv spiff /usr/local/bin
 ```
 
+### BOSH Stemcell
+#### Download & Upload Stemcell
+```
+wget --content-disposition https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3445.2
+bosh upload stemcell bosh-stemcell-3445.2-warden-boshlite-ubuntu-trusty-go_agent.tgz
+```
 
 ### Cloud Foundry Deploy
 #### Specific Version Deploy(v272)
