@@ -13,7 +13,7 @@ sudo apt-get update
 - [VirtualBox](#virtualbox)  
 - [Vagrant](#vagrant)  
 - [bosh-lite Download & VM run](#bosh-lite-download--vm-run)  
-- [add Route](#add-route)  
+- [Route](#route)  
 - [BOSH CLI](#bosh-cli)  
 - [CF CLI](#cf-cli)  
 - [Spiff](#spiff)  
@@ -73,7 +73,7 @@ cd bosh-lite
 vagrant up --provider=virtualbox
 ```
 ##### Error1 - Secure Boot
-에러내용:
+- 에러내용:
 >The provider 'virtualbox' that was requested to back the machine
 >'default' is reporting that it isn't usable on this system. The
 >reason is shown below:
@@ -82,19 +82,21 @@ vagrant up --provider=virtualbox
 >run `VBoxManage --version` or open the VirtualBox GUI to see the error
 >message which should contain instructions on how to fix this error.
 
-조치방법: os의 secure boot를 disable 해야 한다.
+- 조치방법: os의 secure boot를 disable 해야 한다.
 
 ##### Error2 - Network
-에러내용:
+- 에러내용:
 >The specified host network collides with a non-hostonly network!
 >This will cause your specified IP to be inaccessible. Please change
 >the IP or name of your host only network so that it no longer matches that of
 >a bridged or non-hostonly network.
 
-조치방법: Vagrantfile 수정
-override.vm.network :private_network  << 주석 제거 후 저장. 다시 vagrant up
+- 조치방법: 
+1. Vagrantfile 수정  
+override.vm.network :private_network  << 주석 제거, 필요시 ip 변경 후 저장
+1. bin/add-route << Vagrantfile에서 ip 변경 시 이 파일에서도 동일하게 변경
 
-#### add Route
+#### Route
 ```
 cd ~/workspace/bosh-lite/bin
 add-route
@@ -126,6 +128,36 @@ sudo mv spiff /usr/local/bin
 ```
 wget --content-disposition https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3445.2
 bosh upload stemcell bosh-stemcell-3445.2-warden-boshlite-ubuntu-trusty-go_agent.tgz
+```
+or
+```
+bosh upload stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3445.2
+```
+
+### Garden RunC
+```
+cd ~/workspace
+git clone https://github.com/cloudfoundry/garden-runc-release
+cd garden-runc-release
+git checkout v1.9.0
+bosh -n upload release releases/garden-runc/garden-runc-1.9.0.yml
+```
+or
+```
+bosh upload release https://bosh.io/d/github.com/cloudfoundry/garden-runc-release?v=1.9.0
+```
+
+### cflinuxfs2
+```
+cd ~/workspace
+git clone https://github.com/cloudfoundry/cflinuxfs2-release
+cd cflinuxfs2-release
+git checkout v1.146.0
+bosh -n upload release releases/cflinuxfs2/cflinuxfs2-1.146.0.yml
+```
+or
+```
+bosh upload release https://bosh.io/d/github.com/cloudfoundry/cflinuxfs2-release?v=1.146.0
 ```
 
 ### Cloud Foundry Deploy
@@ -166,6 +198,7 @@ git checkout v1.25.1
 ./scripts/generate-bosh-lite-manifests
 bosh deployment bosh-lite/deployments/diego.yml
 bosh -n upload release releases/diego-1.25.1.yml
+(or bosh upload release https://bosh.io/d/github.com/cloudfoundry/diego-release?v=1.25.1)
 bosh -n deploy
 
 bosh vms
@@ -175,11 +208,31 @@ bosh vms
 cd ~/workspace
 git clone https://github.com/cloudfoundry/diego-release
 cd diego-release
-git checkout v1.25.1
+git checkout v1.26.1
 ./scripts/update
 bosh -n create release --force
 bosh -n upload release
 bosh -n deploy
 
 bosh vms
+```
+
+## App Push Test
+### cf target
+```
+cf api --skip-ssl-validation api.bosh-lite.com
+cf auth admin admin
+cf create-org org
+cf create-space space -o org
+cf target -o org -s space
+```
+
+### php app push
+```
+cf enable-feature-flag diego_docker
+mkdir -p test-php; cd test-php
+echo "<?php phpinfo(); ?>" > index.php
+cf push test-php -b php_buildpack
+
+cf apps
 ```
