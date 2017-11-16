@@ -65,8 +65,8 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 #bind-address           = 127.0.0.1
 sudo service mysql restart
 
-mysql -uroot -padmin
-INSERT INTO mysql.user (host,user,authentication_string, ssl_cipher, x509_issuer, x509_subject) VALUES ('%','root',password('admin'),'','','');
+mysql -uroot -ppassword
+INSERT INTO mysql.user (host,user,authentication_string, ssl_cipher, x509_issuer, x509_subject) VALUES ('%','root',password('password'),'','','');
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 FLUSH PRIVILEGES;
 
@@ -78,7 +78,7 @@ FLUSH PRIVILEGES;
 https://zetawiki.com/wiki/ERROR_2003_(HY000):_Can%27t_connect_to_MySQL_server_on
 - 참고 2. 원격접속 허용
 https://zetawiki.com/wiki/MySQL_%EC%9B%90%EA%B2%A9_%EC%A0%91%EC%86%8D_%ED%97%88%EC%9A%A9
-- 참고 3. mysql client tool
+- 참고 3. mysql client tool  
 sudo apt-get install mysql-workbench -y
 
 
