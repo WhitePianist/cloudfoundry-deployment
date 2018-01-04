@@ -196,6 +196,7 @@ sudo apt-get install vim
 
 
 ## PostgreSQL
+### 설치
 /etc/apt/sources.list.d/pgdg.list 파일을 만들고, 아래 저장소에 대한 행을 입력한다.
 ```
 deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main
@@ -219,3 +220,24 @@ sudo apt-get install postgresql-9.6
 dpkg -l | grep postgres
 ```
 https://www.postgresql.org/download/linux/ubuntu/
+
+### 초기설정
+다음과 같이 postgres계정으로 접속 시 오류가 발생 할 경우
+```
+$ psql -U postgres
+psql: FATAL:  Peer authentication failed for user "postgres"
+```
+아래 파일에서 local의 peer를 md5로 수정하고 서비스를 재시작한다.
+```
+sudo vi /etc/postgresql/9.6/main/pg_hba.conf
+```
+```
+#local   all             postgres                                peer
+local   all             postgres                                md5
+```
+```
+$ sudo service postgresql restart
+$ psql -U postgres
+Password for user postgres:
+```
+위 패스워드는 postgres
