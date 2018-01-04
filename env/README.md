@@ -193,3 +193,29 @@ http://devmonster.tistory.com/48
 ```
 sudo apt-get install vim
 ```
+
+
+## PostgreSQL
+/etc/apt/sources.list.d/pgdg.list 파일을 만들고, 아래 저장소에 대한 행을 입력한다.
+```
+deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main
+```
+저장소 키를 가져오고 패키지목록을 업데이트한다.
+```
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+  sudo apt-key add -
+sudo apt-get update
+```
+우분투에는 기본적으로 PostgreSQL이 포함되어 있다.
+```
+sudo apt-get install postgresql
+```
+원하는버전으로설치하는경우:
+```
+sudo apt-get install postgresql-9.6
+```
+설치확인
+```
+dpkg -l | grep postgres
+```
+https://www.postgresql.org/download/linux/ubuntu/
