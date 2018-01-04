@@ -196,7 +196,7 @@ sudo apt-get install vim
 
 
 ## PostgreSQL
-### 설치
+- ### 설치
 /etc/apt/sources.list.d/pgdg.list 파일을 만들고, 아래 저장소에 대한 행을 입력한다.
 ```
 deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main
@@ -221,7 +221,7 @@ dpkg -l | grep postgres
 ```
 https://www.postgresql.org/download/linux/ubuntu/
 
-### 초기설정
+- ### 초기설정
 다음과 같이 postgres계정으로 접속 시 오류가 발생 할 경우
 ```
 $ psql -U postgres
@@ -241,3 +241,5 @@ $ psql -U postgres
 Password for user postgres:
 ```
 위 패스워드는 postgres
+
+http://blog.secretmuse.net/?p=10
