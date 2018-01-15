@@ -88,6 +88,7 @@ $ bosh -e vbox -d cf deploy cf-deployment.yml \
    --vars-store deployment-vars.yml \
    -v system_domain=bosh-lite.com
 ```
+https://github.com/cloudfoundry/cf-deployment/blob/master/deployment-guide.md
 ```
 $ cf api https://api.bosh-lite.com --skip-ssl-validation
 $ export CF_ADMIN_PASSWORD=$(bosh int ./deployment-vars.yml --path /cf_admin_password)
