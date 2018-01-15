@@ -90,7 +90,32 @@ bosh -e vbox -d cf deploy cf-deployment.yml \
 ```
 
 ## Commands
-- delete deployment
+- releases
 ```
-bosh -e vbox -d zookeeper delete-deployment --force
+$ bosh -e vbox releases 
+```
+- deployments
+```
+$ bosh -e vbox deployments
+
+#delete
+$ bosh -e vbox -d zookeeper delete-deployment --force
+```
+- vms & instances
+```
+$ bosh -e vbox vms
+$ bosh -e vbox instances
+```
+- ssh
+```
+$ bosh –e vbox ssh –d {deployment-name} {job-name}
+$ bosh –e vbox ssh –d cf nats
+```
+- tasks
+```
+$ bosh –e vbox tasks
+```
+- locks
+```
+$ bosh -e vbox locks
 ```
