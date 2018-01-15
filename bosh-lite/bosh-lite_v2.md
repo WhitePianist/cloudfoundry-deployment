@@ -12,7 +12,7 @@
 
 ## Pre-Reqs
 ```
-sudo apt-get update
+$ sudo apt-get update
 ```
 Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
@@ -83,7 +83,7 @@ $ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-t
 
 ## Deploy CF
 ```
-bosh -e vbox -d cf deploy cf-deployment.yml \
+$ bosh -e vbox -d cf deploy cf-deployment.yml \
    -o operations/bosh-lite.yml \
    --vars-store deployment-vars.yml \
    -v system_domain=bosh-lite.com
