@@ -88,6 +88,11 @@ bosh -e vbox -d cf deploy cf-deployment.yml \
    --vars-store deployment-vars.yml \
    -v system_domain=bosh-lite.com
 ```
+```
+$ cf api https://api.bosh-lite.com --skip-ssl-validation
+$ export CF_ADMIN_PASSWORD=$(bosh int ./deployment-vars.yml --path /cf_admin_password)
+$ cf auth admin $CF_ADMIN_PASSWORD
+```
 
 ## Commands
 - releases
