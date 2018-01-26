@@ -1,6 +1,10 @@
 # Widnows 10 환경구성
 https://docs.microsoft.com/ko-kr/virtualization/windowscontainers/quick-start/quick-start-windows-10
 
+## Hyper-V 설정
+윈도우 "프로그램 및 기능" > "Windows 기능 켜기/끄기" > Hyper-V 및 하위 모든 항목 체크
+http://bryan7.tistory.com/774
+
 ## Docker 설치
 [Windows용 Docker를 다운로드](https://download.docker.com/win/stable/InstallDocker.msi)  
 
