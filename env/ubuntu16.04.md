@@ -1,5 +1,29 @@
 # Ubuntu 16.04 개발환경 구성
 
+- [한글설정](#한글설정)   
+- [nvidia driver 설치 (Ubuntu 16.04 + Nvidia의 경우)](#nvidia-driver-설치-(ubuntu-16.04-+-nvidia의-경우))   
+- [java 설치](#java-설치)   
+- [go 설치](#go-설치)   
+- [godep 설치](#godep-설치)   
+- [direnv 설치](#direnv-설치)   
+- [curl 설치](#curl-설치)   
+- [mysql 설치](#mysql설치)   
+- [PostgreSQL](#postgresql)   
+- [git 설치](#git-설치)   
+- [maven 설치](#maven-설치)   
+- [intellij 설치](#intellij-설치)   
+- [docker 설치](#docker-설치)   
+- [protobuf 설치](#protobuf-설치)   
+- [rvm](#rvm)   
+- [bosh cli](#bosh-cli)   
+- [cf cli](#cf-cli)   
+- [PaaSXpert cli](#PaaSXpert-cli)   
+- [virtual box](#virtual-box)   
+- [vagrant](#vagrant)   
+- [Ubuntu 설정](#Ubuntu-설정)   
+- [vim](#vim)   
+
+
 ## 한글설정
 http://hochulshin.com/ubuntu-1604-hangul/
 http://b1ix.net/207
@@ -80,6 +104,56 @@ https://zetawiki.com/wiki/ERROR_2003_(HY000):_Can%27t_connect_to_MySQL_server_on
 https://zetawiki.com/wiki/MySQL_%EC%9B%90%EA%B2%A9_%EC%A0%91%EC%86%8D_%ED%97%88%EC%9A%A9
 - 참고 3. mysql client tool  
 sudo apt-get install mysql-workbench -y
+
+
+## PostgreSQL
+- ### 설치
+/etc/apt/sources.list.d/pgdg.list 파일을 만들고, 아래 저장소에 대한 행을 입력한다.
+```
+deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main
+```
+저장소 키를 가져오고 패키지목록을 업데이트한다.
+```
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
+  sudo apt-key add -
+sudo apt-get update
+```
+우분투에는 기본적으로 PostgreSQL이 포함되어 있다.
+```
+sudo apt-get install postgresql
+```
+원하는버전으로설치하는경우:
+```
+sudo apt-get install postgresql-9.6
+```
+설치확인
+```
+dpkg -l | grep postgres
+```
+https://www.postgresql.org/download/linux/ubuntu/
+
+- ### 초기설정
+다음과 같이 postgres계정으로 접속 시 오류가 발생 할 경우
+```
+$ psql -U postgres
+psql: FATAL:  Peer authentication failed for user "postgres"
+```
+아래 파일에서 local의 peer를 md5로 수정하고 서비스를 재시작한다.
+```
+sudo vi /etc/postgresql/9.6/main/pg_hba.conf
+```
+```
+#local   all             postgres                                peer
+local   all             postgres                                md5
+```
+```
+$ sudo service postgresql restart
+$ psql -U postgres
+Password for user postgres:
+```
+위 패스워드는 postgres
+
+http://blog.secretmuse.net/?p=10
 
 
 ## git 설치
@@ -193,53 +267,3 @@ http://devmonster.tistory.com/48
 ```
 sudo apt-get install vim
 ```
-
-
-## PostgreSQL
-- ### 설치
-/etc/apt/sources.list.d/pgdg.list 파일을 만들고, 아래 저장소에 대한 행을 입력한다.
-```
-deb http://apt.postgresql.org/pub/repos/apt/ YOUR_UBUNTU_VERSION_HERE-pgdg main
-```
-저장소 키를 가져오고 패키지목록을 업데이트한다.
-```
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
-  sudo apt-key add -
-sudo apt-get update
-```
-우분투에는 기본적으로 PostgreSQL이 포함되어 있다.
-```
-sudo apt-get install postgresql
-```
-원하는버전으로설치하는경우:
-```
-sudo apt-get install postgresql-9.6
-```
-설치확인
-```
-dpkg -l | grep postgres
-```
-https://www.postgresql.org/download/linux/ubuntu/
-
-- ### 초기설정
-다음과 같이 postgres계정으로 접속 시 오류가 발생 할 경우
-```
-$ psql -U postgres
-psql: FATAL:  Peer authentication failed for user "postgres"
-```
-아래 파일에서 local의 peer를 md5로 수정하고 서비스를 재시작한다.
-```
-sudo vi /etc/postgresql/9.6/main/pg_hba.conf
-```
-```
-#local   all             postgres                                peer
-local   all             postgres                                md5
-```
-```
-$ sudo service postgresql restart
-$ psql -U postgres
-Password for user postgres:
-```
-위 패스워드는 postgres
-
-http://blog.secretmuse.net/?p=10
