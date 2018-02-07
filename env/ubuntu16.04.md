@@ -1,13 +1,13 @@
 # Ubuntu 16.04 개발환경 구성
 
 - [한글설정](#한글설정)   
-- [nvidia driver 설치 (Ubuntu 16.04 + Nvidia의 경우)](#nvidia-driver-설치-(ubuntu-16.04-+-nvidia의-경우))   
+- [nvidia driver 설치 (Ubuntu 16.04 & Nvidia의 경우)](#nvidia-driver-설치-(ubuntu-16.04-&-nvidia의-경우))   
 - [java 설치](#java-설치)   
 - [go 설치](#go-설치)   
 - [godep 설치](#godep-설치)   
 - [direnv 설치](#direnv-설치)   
 - [curl 설치](#curl-설치)   
-- [mysql 설치](#mysql설치)   
+- [mysql 설치](#mysql-설치)   
 - [PostgreSQL](#postgresql)   
 - [git 설치](#git-설치)   
 - [maven 설치](#maven-설치)   
