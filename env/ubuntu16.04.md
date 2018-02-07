@@ -21,7 +21,7 @@
 - [vagrant](#vagrant)   
 - [Ubuntu 설정](#ubuntu-설정)   
 - [vim](#vim)   
-- [nvidia driver 설치 (필요시)](#nvidia-driver-설치-(필요시))   
+- [nvidia driver 설치](#nvidia-driver-설치)   
 
 
 ## 한글설정
@@ -258,7 +258,8 @@ sudo apt-get install vim
 ```
 
 
-## nvidia driver 설치 (필요시)
+## nvidia driver 설치
+Nvidia 그래픽카드인 경우 필요시 설치
 ```
 sudo apt-get purge nvidia-*
 sudo add-apt-repository ppa:graphics-drivers/ppa and then sudo apt-get update.
