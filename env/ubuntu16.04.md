@@ -1,7 +1,6 @@
 # Ubuntu 16.04 개발환경 구성
 
 - [한글설정](#한글설정)   
-- [nvidia driver 설치 (Ubuntu 16.04 & Nvidia의 경우)](#nvidia-driver-설치-(ubuntu-16.04-&-nvidia의-경우))   
 - [java 설치](#java-설치)   
 - [go 설치](#go-설치)   
 - [godep 설치](#godep-설치)   
@@ -17,27 +16,17 @@
 - [rvm](#rvm)   
 - [bosh cli](#bosh-cli)   
 - [cf cli](#cf-cli)   
-- [PaaSXpert cli](#PaaSXpert-cli)   
+- [PaaSXpert cli](#paasxpert-cli)   
 - [virtual box](#virtual-box)   
 - [vagrant](#vagrant)   
-- [Ubuntu 설정](#Ubuntu-설정)   
+- [Ubuntu 설정](#ubuntu-설정)   
 - [vim](#vim)   
+- [nvidia driver 설치 (필요시)](#nvidia-driver-설치-(필요시))   
 
 
 ## 한글설정
 http://hochulshin.com/ubuntu-1604-hangul/
 http://b1ix.net/207
-
-
-## nvidia driver 설치 (Ubuntu 16.04 + Nvidia의 경우)
-```
-sudo apt-get purge nvidia-*
-sudo add-apt-repository ppa:graphics-drivers/ppa and then sudo apt-get update.
-sudo apt-get install nvidia-364.
-sudo reboot
-```
-http://askubuntu.com/questions/760934/graphics-issues-after-installing-ubuntu-16-04-with-nvidia-graphics  
-참고(http://blog.daum.net/bagjunggyu/66)
 
 
 ## java 설치
@@ -267,3 +256,14 @@ http://devmonster.tistory.com/48
 ```
 sudo apt-get install vim
 ```
+
+
+## nvidia driver 설치 (필요시)
+```
+sudo apt-get purge nvidia-*
+sudo add-apt-repository ppa:graphics-drivers/ppa and then sudo apt-get update.
+sudo apt-get install nvidia-364.
+sudo reboot
+```
+http://askubuntu.com/questions/760934/graphics-issues-after-installing-ubuntu-16-04-with-nvidia-graphics  
+참고(http://blog.daum.net/bagjunggyu/66)
