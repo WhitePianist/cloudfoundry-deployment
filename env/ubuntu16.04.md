@@ -22,6 +22,7 @@
 - [Ubuntu 설정](#ubuntu-설정)   
 - [vim](#vim)   
 - [nvidia driver 설치](#nvidia-driver-설치)   
+- [alarm-clock 설치](#alarm-clock-설치)   
 
 
 ## 한글설정
@@ -268,3 +269,16 @@ sudo reboot
 ```
 http://askubuntu.com/questions/760934/graphics-issues-after-installing-ubuntu-16-04-with-nvidia-graphics  
 참고(http://blog.daum.net/bagjunggyu/66)
+
+
+
+## alarm-clock 설치
+Ubuntu Software > "alarm"으로 검색 > "Alarm Clock" Install
+#### 요일별 반복기능 제공
+"Time"에 반복하려는 시간 입력하고(14:00:00) "Repeat"에 원하는 요일 선택
+#### 알람 시 명령 실행
+"Start Application" 선택 후 "Command"에 아래 명령 입력  
+예) 크롬 브라우저 열고 URL호출 명령실행  
+```
+google-chrome-stable https://docs.google.com/spreadsheets/d/1Ls9gZ9xfcT7C-jr3xDpQ8TOKDNcXvjyQGU_vrtmW-Wo/edit#gid=0
+```
