@@ -77,6 +77,7 @@ $ bosh -e vbox update-cloud-config iaas-support/bosh-lite/cloud-config.yml
 ```
 
 ## Upload stemcell
+stemcell 버전은 cf-deployment.yml 파일의 "stemcells" 버전을 확인하여 입력한다.
 ```
 $ bosh -e vbox upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3468.17
 ```
