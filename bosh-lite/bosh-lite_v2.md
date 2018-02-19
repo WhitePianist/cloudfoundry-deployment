@@ -78,7 +78,7 @@ $ bosh -e vbox update-cloud-config iaas-support/bosh-lite/cloud-config.yml
 
 ## Upload stemcell
 ```
-$ bosh upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3468.17
+$ bosh -e vbox upload-stemcell https://bosh.io/d/stemcells/bosh-warden-boshlite-ubuntu-trusty-go_agent?v=3468.17
 ```
 
 ## Deploy CF
