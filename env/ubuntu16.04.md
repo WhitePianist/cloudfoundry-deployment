@@ -150,6 +150,17 @@ http://blog.secretmuse.net/?p=10
 ```
 sudo apt-get install git -y
 ```
+### git Credential 저장
+protocol, host, username, password를 미리 등록해 두어 매번 Credential정보를 입력할 필요없이 Remote와 통신한다.
+```
+$ git credential-store store
+protocol=https
+host=github.com
+username=khj0651
+password=xxxxxxxxx
+
+$ git config --global credential.helper STORE
+```
 
 
 ## maven 설치
@@ -159,10 +170,13 @@ sudo apt-get install maven -y
 
 
 ## intellij 설치
+```
 intellij home > download > previous version
 ideaIU-2016.1.4.tar.gz
 tar -zxvf ideaIU-2016.1.4.tar.gz
-
+```
+실행 시 serial key 입력
+```
 User name: 주) 크로센트
 ===== LICENSE BEGIN =====
 1070754-27052015
@@ -170,10 +184,13 @@ User name: 주) 크로센트
 zyWFidd5desBAqHmGWtePNdezutA6U
 L4Hh!KYHwRZEx20eDOLtCOs9mlRSBS
 ===== LICENSE END =====
+```
 입력하면 convert하라고 나오는데
+```
 first name: 주)
 lastname: 크로센트
 email: hjinkim@crossent.com
+```
 
 
 ## docker 설치
