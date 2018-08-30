@@ -23,7 +23,7 @@
 - [vim](#vim)   
 - [nvidia driver 설치](#nvidia-driver-설치)   
 - [alarm-clock 설치](#alarm-clock-설치)    
-- [Ubuntu 환경변수 및 환경설정](#Ubuntu-환경변수-및-환경설정)   
+- [Ubuntu 환경변수 및 환경설정](#ubuntu-환경변수-및-환경설정)   
 
 
 ## 한글설정
