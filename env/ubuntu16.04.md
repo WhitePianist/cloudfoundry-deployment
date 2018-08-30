@@ -16,6 +16,7 @@
 - [rvm](#rvm)   
 - [bosh cli](#bosh-cli)   
 - [cf cli](#cf-cli)   
+- [uaa cli](#uaa-cli)   
 - [PaaSXpert cli](#paasxpert-cli)   
 - [virtual box](#virtual-box)   
 - [vagrant](#vagrant)   
@@ -244,6 +245,12 @@ https://bosh.io/docs/bosh-cli.html
 ## cf cli
 아래 링크에서 deb파일 다운로드 받아 직접 설치
 https://github.com/cloudfoundry/cli
+
+
+## uaa cli
+```
+gem install cf-uaac
+```
 
 
 ## PaaSXpert cli
