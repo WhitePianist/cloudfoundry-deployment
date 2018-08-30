@@ -325,6 +325,4 @@ export UAA_ADMIN_CLIENT_SECRET=$(bosh int /home/hyojin/workspace/cf-deployment/d
 alias goweb='cd /home/hyojin/workspace/MsXpert/microservice/src/crossent/micro/studio/web'
 alias goms='cd /home/hyojin/workspace/MsXpert'
 alias gomss='cd /home/hyojin/workspace/MsXpert-spring-cloud'
-
-$HOME/set_internal_nameserver.sh
 ```
