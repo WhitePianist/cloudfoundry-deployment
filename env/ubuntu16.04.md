@@ -22,7 +22,8 @@
 - [Ubuntu 설정](#ubuntu-설정)   
 - [vim](#vim)   
 - [nvidia driver 설치](#nvidia-driver-설치)   
-- [alarm-clock 설치](#alarm-clock-설치)   
+- [alarm-clock 설치](#alarm-clock-설치)    
+- [Ubuntu 환경변수 및 환경설정](#Ubuntu-환경변수-및-환경설정)   
 
 
 ## 한글설정
@@ -298,4 +299,32 @@ Ubuntu Software > "alarm"으로 검색 > "Alarm Clock" Install
 예) 크롬 브라우저 열고 URL호출 명령실행  
 ```
 google-chrome-stable https://docs.google.com/spreadsheets/d/1Ls9gZ9xfcT7C-jr3xDpQ8TOKDNcXvjyQGU_vrtmW-Wo/edit#gid=0
+```
+
+
+
+## Ubuntu 환경변수 및 환경설정
+```
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# bosh2
+export BOSH_CLIENT=admin
+export BOSH_CLIENT_SECRET=`bosh int /home/hyojin/deployments/vbox/creds.yml --path /admin_password`
+
+# cf admin password
+export CF_ADMIN_PASSWORD=$(bosh int /home/hyojin/workspace/cf-deployment/deployment-vars.yml --path /cf_admin_password)
+export UAA_ADMIN_CLIENT_SECRET=$(bosh int /home/hyojin/workspace/cf-deployment/deployment-vars.yml --path /uaa_admin_client_secret)
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+alias goweb='cd /home/hyojin/workspace/MsXpert/microservice/src/crossent/micro/studio/web'
+alias goms='cd /home/hyojin/workspace/MsXpert'
+alias gomss='cd /home/hyojin/workspace/MsXpert-spring-cloud'
+
+$HOME/set_internal_nameserver.sh
 ```
