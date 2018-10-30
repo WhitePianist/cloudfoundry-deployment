@@ -179,12 +179,19 @@ docker run -it --link mysql:mysql --rm mysql sh -c 'exec mysql -h"$MYSQL_PORT_33
 
 
 ## rvm
+ruby는 bosh의 권장 버전인 2.3.1로 설치
 ```
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 
-rvm install ruby-2.3.0
+rvm install ruby-2.3.1
+rvm --default use 2.3.1
+```
+기본 설치된 버전을 삭제하여 2.3.1만 사용한다.
+```
+rvm uninstall 2.5.1
+rvm remove 2.5.1
 ```
 https://rvm.io/rvm/install
 
