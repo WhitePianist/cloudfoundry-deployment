@@ -142,7 +142,7 @@ host=github.com
 username=khj0651
 password=xxxxxxxxx
 
-$ git config --global credential.helper STORE
+$ git config --global credential.helper 'store --file $HOME/.git-credentials'
 ```
 
 
