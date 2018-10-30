@@ -130,6 +130,8 @@ http://blog.secretmuse.net/?p=10
 ## git 설치
 ```
 sudo apt-get install git -y
+git config --global user.email "khj0651@gmail.com"
+git config --global user.name "khj0651"
 ```
 ### git Credential 저장
 protocol, host, username, password를 미리 등록해 두어 매번 Credential정보를 입력할 필요없이 Remote와 통신한다.
