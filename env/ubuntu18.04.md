@@ -287,7 +287,5 @@ export UAA_ADMIN_CLIENT_SECRET=$(bosh int /home/hyojin/workspace/cf-deployment/d
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-alias goweb='cd /home/hyojin/workspace/MsXpert/microservice/src/crossent/micro/studio/web'
-alias goms='cd /home/hyojin/workspace/MsXpert'
-alias gomss='cd /home/hyojin/workspace/MsXpert-spring-cloud'
+alias pseo='ps -eo user,pid,ppid,rss,size,vsize,pmem,pcpu,time,comm --sort -rss | head -n 11'
 ```
