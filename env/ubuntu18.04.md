@@ -160,6 +160,17 @@ tar -zxvf ideaIU-2016.1.4.tar.gz
 ```
 email 방식으로 인증
 
+### Settings
+#### Auto save off
+Settings > Editor > General > Editor Tabs > Mark modified(*) 체크
+
+#### GC overhead limit exceeded 에러 발생 시
+Settings > Build, Execution, Deployment > Build Tools > Maven > Importing
+```
+VM Options for importer: -Xmx1024m
+```
+>https://stackoverflow.com/questions/32859935/maven-import-in-intellij-idea-runs-out-of-memory-on-a-large-project
+
 
 ## docker 설치
 ```
@@ -197,12 +208,16 @@ https://rvm.io/rvm/install
 
 
 ## bosh cli
+Install [Bosh CLI](https://github.com/cloudfoundry/bosh-cli/releases)
 ```
-gem install bosh_cli --no-ri --no-rdoc
-bosh target https://115.68.151.183:25555
-admin / admin
+$ chmod +x ~/Downloads/bosh-cli-*
+$ sudo mv ~/Downloads/bosh-cli-* /usr/local/bin/bosh
 ```
-https://bosh.io/docs/bosh-cli.html
+check
+```
+$ bosh -v
+version 2.0.44-21639e8-2017-10-17T18:49:44Z
+```
 
 
 ## cf cli
